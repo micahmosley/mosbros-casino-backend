@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: mosbros_casino_backend_production
-  username: mosbros_casino_backend
-  password: <%= ENV['MOSBROS_CASINO_BACKEND_DATABASE_PASSWORD'] %>
+  # username: mosbros_casino_backend
+  # password: <%= ENV['MOSBROS_CASINO_BACKEND_DATABASE_PASSWORD'] %>

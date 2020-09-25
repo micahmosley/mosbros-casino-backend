@@ -1,4 +1,4 @@
 class Card < ApplicationRecord
-    belongs_to :player, polymorphic: true
+    belongs_to :owner, polymorphic: true
     
 end
