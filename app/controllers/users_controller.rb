@@ -2,11 +2,12 @@ class UsersController < ApplicationController
 
 
     def create 
-        user = User.create(user_params)
-        if user.valid? 
+        user = User.new(username: params[:username], password: params[:password], game_id: params[:game_id])
+        puts user
+        if user.save
             render json: user, status: :created
         else
-            render json: { error: 'failed to create user' }, status: :not_acceptable
+            render json: { error: user.errors.full_messages }, status: :not_acceptable
         end
     end
 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 
     private 
 
-    def user_params 
-        params.require(:user).permit(:username, :password)
-    end
+    # def user_params 
+    #     params.require(:user).permit(:username, :password)
+    # end
 end
