@@ -4,7 +4,7 @@ class CreateCards < ActiveRecord::Migration[6.0]
       t.string :suite
       t.string :value
       t.string :color
-
+      t.references :player, polymorphic: true, index: true
       t.timestamps
     end
   end

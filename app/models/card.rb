@@ -1,5 +1,4 @@
 class Card < ApplicationRecord
-    belongs_to :dealer 
-    belongs_to :user 
+    belongs_to :player, polymorphic: true
     
 end
