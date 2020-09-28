@@ -4,8 +4,11 @@ class Game < ApplicationRecord
 
 
     def start 
+        deck=Deck.create(game:self)
+        deck.create_deck
+
         ## get array of all cards in deck 
-        deck=Deck.find_by(game: self).cards
+        deck=deck.cards
         deck=deck.shuffle
 
         ## deal two cards to dealer and user
