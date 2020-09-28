@@ -5,6 +5,7 @@ class Game < ApplicationRecord
 
     def start 
         deck=Deck.create(game:self)
+        dealer=Dealer.create(game:self name:"Dealer")
         deck.create_deck
 
         ## get array of all cards in deck 
