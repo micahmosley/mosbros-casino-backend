@@ -14,9 +14,13 @@ class UsersController < ApplicationController
     def login
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
-            redirect_to user_path(@user)
+            render json: user, status: :accepted
         else
-            render json: { error: user.errors.full_messages }, status: :not_acceptable
+            if user == nil 
+                render json: { error: ["That user does not exist." ] }, status: :not_acceptable
+            else
+                render json: { error: ["Password is incorrect" ] }, status: :not_acceptable
+            end
         end
     end
 
