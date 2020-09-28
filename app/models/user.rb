@@ -8,9 +8,24 @@ class User < ApplicationRecord
 
     #grab total value of user's hand
     def total 
+        ace_count=0
+        sum=0
         self.cards.map do |card|
-            card.true_value 
-        end.sum
+            value=card.true_value 
+            sum+=value
+            if card.value == 'A'
+                ace_count+=1
+            end 
+        end
+        #deal with scenario where Ace value needs to go from 11 to 1
+        if sum>21 && ace_count>0 
+            while(ace_count>0 && sum>21) do 
+                sum-=10
+                ace_count-=1
+            end 
+        end 
+
+        return sum 
     end 
 
 end

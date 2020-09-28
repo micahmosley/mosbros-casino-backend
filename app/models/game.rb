@@ -5,7 +5,7 @@ class Game < ApplicationRecord
 
     def start 
         deck=Deck.create(game:self)
-        dealer=Dealer.create(game:self name:"Dealer")
+        dealer=Dealer.create(game:self, name:"Dealer")
         deck.create_deck
 
         ## get array of all cards in deck 
@@ -14,8 +14,8 @@ class Game < ApplicationRecord
 
         ## deal two cards to dealer and user
         2.times {
-            get_card(deck, self.user)
-            get_card(deck, self.dealer)
+            self.get_card(deck, self.user)
+            self.get_card(deck, self.dealer)
         }
 
 
@@ -26,6 +26,10 @@ class Game < ApplicationRecord
         card=deck.pop()
         #update card's owner from the deck to the player
         card.update(owner: player.class.find_by(game: self))
+    end 
+
+    def busted 
+
     end 
 
 end
