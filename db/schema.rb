@@ -16,9 +16,10 @@ ActiveRecord::Schema.define(version: 2020_09_25_194720) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string "suite"
+    t.string "suit"
     t.string "value"
     t.string "color"
+    t.integer "rank"
     t.string "owner_type"
     t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_194720) do
 
   create_table "dealers", force: :cascade do |t|
     t.string "name"
+    t.integer "score"
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_194720) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.integer "score"
     t.integer "bank"
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false

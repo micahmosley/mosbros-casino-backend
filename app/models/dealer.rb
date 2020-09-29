@@ -6,8 +6,7 @@ class Dealer < ApplicationRecord
         ace_count=0
         sum=0
         self.cards.map do |card|
-            value=card.true_value 
-            sum+=value
+            sum+=card.rank
             if card.value == 'A'
                 ace_count+=1
             end 
@@ -20,7 +19,7 @@ class Dealer < ApplicationRecord
             end 
         end 
 
-        return sum 
+        self.update(score: sum)
     end 
 
 end

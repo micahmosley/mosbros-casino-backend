@@ -7,10 +7,14 @@ class Deck < ApplicationRecord
         values=['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 
         values.each do |value|
-            Card.create(suit: 'club', color: 'black', value: value, owner: self)
-            Card.create(suit: 'spade', color: 'black', value: value, owner: self)
-            Card.create(suit: 'heart', color: 'red', value: value, owner: self)
-            Card.create(suit: 'diamond', color: 'red', value: value, owner: self)
+            a=Card.create(suit: 'club', color: 'black', value: value, owner: self)
+            a.true_value
+            b=Card.create(suit: 'spade', color: 'black', value: value, owner: self)
+            b.true_value
+            c=Card.create(suit: 'heart', color: 'red', value: value, owner: self)
+            c.true_value
+            d=Card.create(suit: 'diamond', color: 'red', value: value, owner: self)
+            d.true_value
         end 
 
     end 
