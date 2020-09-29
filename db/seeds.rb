@@ -7,20 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 game=Game.create
-<<<<<<< HEAD
 dealer=Dealer.create(game:game, name:"Micah", score:0)
 deck=Deck.create(game:game)
 deck.create_deck
 
 values=['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 
-=======
-
-deck=Deck.create(game:game)
-
-values=['2','3','4','5','6','7','8','9','10','J','Q','K','A']
-
->>>>>>> colin
 values.each do |value|
     Card.create(suit: 'club', color: 'black', value: value, owner: deck)
     Card.create(suit: 'spade', color: 'black', value: value, owner: deck)
