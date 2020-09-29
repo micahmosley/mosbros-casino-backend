@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_194720) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string "suite"
+    t.string "suit"
     t.string "value"
     t.string "color"
     t.string "owner_type"
