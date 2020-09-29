@@ -21,7 +21,7 @@ class GamesController < ApplicationController
         elsif params[:move]=='user hit'
             game.get_card(game.deck,game.user)
             # If user busted
-            if game.user.total>21
+            if game.user.score>21
                 
             elsif 
                 redirect_to user_path
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
         elsif params[:move]=='dealer hit'
             game.get_card(game.deck,game.dealer)
             # If dealer busted
-            if game.dealer.total>21
+            if game.dealer.score>21
               
             elsif 
                 redirect_to dealer_path
