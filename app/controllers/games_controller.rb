@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :show]
+    skip_before_action :authorized, only: [:create]
     def create
         game=Game.create
 

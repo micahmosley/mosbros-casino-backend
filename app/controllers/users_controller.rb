@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         user=User.find(params[:id])
         
 
-        render json: user.cards
+        render json: {cards:user.cards, player: user}
     end 
 
     
