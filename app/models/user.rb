@@ -3,7 +3,6 @@ class User < ApplicationRecord
     has_many :cards, as: :owner
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
-    validates :password, length: {minimum: 6}
 
 
     #grab total value of user's hand
