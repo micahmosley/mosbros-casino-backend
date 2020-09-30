@@ -1,15 +1,14 @@
 class Game < ApplicationRecord
     has_one :user
     has_one :dealer
+    has_one :deck
 
 
     def start 
         deck=Deck.create(game:self)
         dealer=Dealer.find_by(game:self)
+        dealer.cards.clear
         deck.create_deck
-
-        ## get array of all cards in deck 
-        deck=deck.cards.shuffle
 
         ## deal two cards to dealer and user
         2.times {
@@ -38,13 +37,22 @@ class Game < ApplicationRecord
     end 
 
     def get_card(deck, player)
-        puts('made it')
+        deck=deck.cards.shuffle
         #remove card from deck
         card=deck.pop()
         #update card's owner from the deck to the player
         card.update(owner: player)
         #update player's score with new card added
         player.total
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts('made it')
+        puts(player.score)
     end 
 
 

@@ -16,6 +16,16 @@ class GamesController < ApplicationController
         turn_result=''
 
         if params[:move]=='start'
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts('GAME STARTED')
+            puts(params[:user])
+            puts(game)
             user=User.find(params[:user])
             user.cards.clear
             user.update(game: game)
@@ -28,7 +38,7 @@ class GamesController < ApplicationController
             if game.user.score>21
                 
             elsif 
-                redirect_to user_path
+                render json: {cards:game.user.cards, player: game.user}
             end 
         elsif params[:move]=='dealer hit'
             game.get_card(game.deck,game.dealer)
@@ -36,7 +46,7 @@ class GamesController < ApplicationController
             if game.dealer.score>21
               
             elsif 
-                redirect_to dealer_path
+                render json: {cards:game.dealer.cards, player: dealer.user}
             end 
         end 
         

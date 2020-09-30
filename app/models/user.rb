@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :cards, as: :owner
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
-    validates :password, length: {minimum: 6}
+    # validates :password, length: {minimum: 6}
 
 
     #grab total value of user's hand
@@ -24,7 +24,16 @@ class User < ApplicationRecord
             end 
         end 
 
+        
         self.update(score: sum)
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts('USER SCORE UPDATE')
+        puts(self.score)
     end 
 
 end
