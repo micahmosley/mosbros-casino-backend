@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    # skip_before_action :authorized, only: [:create]
     def create
         game=Game.create
+        Dealer.create(game:game, name:"Dealer", score:0)
 
         render json: game
     end
@@ -15,6 +16,9 @@ class GamesController < ApplicationController
         turn_result=''
 
         if params[:move]=='start'
+            user=User.find(params[:user])
+            user.cards.clear
+            user.update(game: game)
             turn_result=game.start
 
             render json: turn_result

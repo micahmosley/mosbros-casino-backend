@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
-    before_action :authorized
+    # before_action :authorized
+    include AbstractController::Helpers
+    helper_method :current_user 
 
     def encode_token(payload)
         JWT.encode(payload, ENV['SECRET_KEY'])
@@ -19,6 +21,7 @@ class ApplicationController < ActionController::API
           end
         end
     end
+
 
     def current_user
         if decoded_token

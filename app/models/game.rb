@@ -5,7 +5,7 @@ class Game < ApplicationRecord
 
     def start 
         deck=Deck.create(game:self)
-        dealer=Dealer.create(game:self, name:"Dealer", score:0)
+        dealer=Dealer.find_by(game:self)
         deck.create_deck
 
         ## get array of all cards in deck 
@@ -38,6 +38,7 @@ class Game < ApplicationRecord
     end 
 
     def get_card(deck, player)
+        puts('made it')
         #remove card from deck
         card=deck.pop()
         #update card's owner from the deck to the player
