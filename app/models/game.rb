@@ -16,6 +16,8 @@ class Game < ApplicationRecord
             self.get_card(deck, self.dealer)
         }
 
+        
+
         #check to see if this hand is over due to blackjack 
 
         if self.user.score==21 && self.dealer.score==21 
@@ -44,15 +46,6 @@ class Game < ApplicationRecord
         card.update(owner: player)
         #update player's score with new card added
         player.total
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts('made it')
-        puts(player.score)
     end 
 
 

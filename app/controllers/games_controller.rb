@@ -17,13 +17,6 @@ class GamesController < ApplicationController
 
         if params[:move]=='start'
             puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
-            puts('GAME STARTED')
             puts(params[:user])
             puts(game)
             user=User.find(params[:user])

@@ -27,12 +27,6 @@ class UsersController < ApplicationController
 
     def show
         user=User.find(params[:id])
-        puts "HERE COME THE CARDSSSSSSS"
-        puts user.card.length
-        user.cards.each do |card| 
-            puts card.rank 
-            puts card.value
-        end
         render json: {cards:user.cards, player: user}
     end 
 

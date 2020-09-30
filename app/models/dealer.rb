@@ -21,12 +21,6 @@ class Dealer < ApplicationRecord
 
         self.update(score: sum)
         puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
-        puts('DEALER SCORE UPDATE')
         puts(self.score)
     end 
 
