@@ -29,7 +29,7 @@ class GamesController < ApplicationController
             game.get_card(game.deck,game.user)
             # If user busted
             if game.user.score>21
-                
+                render json: {bust: "user bust"}
             elsif 
                 render json: {cards:game.user.cards, player: game.user}
             end 
@@ -37,7 +37,7 @@ class GamesController < ApplicationController
             game.get_card(game.deck,game.dealer)
             # If dealer busted
             if game.dealer.score>21
-              
+                render json: {bust: "dealer bust"}
             elsif 
                 render json: {cards:game.dealer.cards, player: game.dealer}
             end 
