@@ -20,8 +20,6 @@ class Dealer < ApplicationRecord
         end 
 
         self.update(score: sum)
-        puts('DEALER SCORE UPDATE')
-        puts(self.score)
     end 
 
 end

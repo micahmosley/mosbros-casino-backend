@@ -10,11 +10,11 @@ class Game < ApplicationRecord
         dealer.cards.clear
         deck.create_deck
 
-        ## deal two cards to dealer and user
-        2.times {
-            self.get_card(deck, self.user)
-            self.get_card(deck, self.dealer)
-        }
+        ## deal one card to dealer and user
+        
+        self.get_card(deck, self.user)
+        self.get_card(deck, self.dealer)
+        
 
         
 

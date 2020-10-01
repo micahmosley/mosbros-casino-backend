@@ -39,7 +39,7 @@ class GamesController < ApplicationController
             if game.dealer.score>21
               
             elsif 
-                render json: {cards:game.dealer.cards, player: dealer.user}
+                render json: {cards:game.dealer.cards, player: game.dealer}
             end 
         end 
         

@@ -26,8 +26,6 @@ class User < ApplicationRecord
 
         
         self.update(score: sum)
-        puts('USER SCORE UPDATE')
-        puts(self.score)
     end 
 
 end
