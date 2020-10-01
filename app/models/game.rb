@@ -46,6 +46,7 @@ class Game < ApplicationRecord
         card.update(owner: player)
         #update player's score with new card added
         player.total
+        card
     end 
 
 

@@ -23,20 +23,20 @@ class GamesController < ApplicationController
 
             render json: turn_result
         elsif params[:move]=='user hit'
-            game.get_card(game.deck,game.user)
+            new_card = game.get_card(game.deck,game.user)
             # If user busted
             if game.user.score>21
                 render json: {bust: "user", cards:game.user.cards, player: game.user}
             elsif 
-                render json: {cards:game.user.cards, player: game.user}
+                render json: {cards: new_card, player: game.user}
             end 
         elsif params[:move]=='dealer hit'
-            game.get_card(game.deck,game.dealer)
+            new_card = game.get_card(game.deck,game.dealer)
             # If dealer busted
             if game.dealer.score>21
                 render json: {bust: "dealer", cards:game.dealer.cards, player: game.dealer}
             elsif 
-                render json: {cards:game.dealer.cards, player: game.dealer}
+                render json: {cards: new_card, player: game.dealer}
             end 
         end 
         
