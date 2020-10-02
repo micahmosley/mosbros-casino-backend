@@ -21,12 +21,12 @@ class GamesController < ApplicationController
             user.update(game: game)
             turn_result=game.start
 
-            render json: turn_result
+            render json: user
         elsif params[:move]=='user hit'
             new_card = game.get_card(game.deck,game.user)
             # If user busted
             if game.user.score>21
-                render json: {bust: "user", cards:game.user.cards, player: game.user}
+                render json: {bust: "user", cards:new_card, player: game.user}
             elsif 
                 render json: {cards: new_card, player: game.user}
             end 
@@ -34,7 +34,7 @@ class GamesController < ApplicationController
             new_card = game.get_card(game.deck,game.dealer)
             # If dealer busted
             if game.dealer.score>21
-                render json: {bust: "dealer", cards:game.dealer.cards, player: game.dealer}
+                render json: {bust: "dealer", cards:new_card, player: game.dealer}
             elsif 
                 render json: {cards: new_card, player: game.dealer}
             end 

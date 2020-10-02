@@ -14,27 +14,6 @@ class Game < ApplicationRecord
         
         self.get_card(deck, self.user)
         self.get_card(deck, self.dealer)
-        
-
-        
-
-        #check to see if this hand is over due to blackjack 
-
-        if self.user.score==21 && self.dealer.score==21 
-            return {gameState: "complete",
-                    result: "PUSH"}
-        elsif self.user.score==21 && self.dealer.score!=21 
-            return {gameState: "complete",
-                result: "You WIN"}
-        elsif self.user.score!=21 && self.dealer.score==21 
-            return {gameState: "complete",
-                result: "Dealer WIN"}
-        end 
-
-        return {gameState: "ongoing",
-            result: "none"}
-
-
 
     end 
 

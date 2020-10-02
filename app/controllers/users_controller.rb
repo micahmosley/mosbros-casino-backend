@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     # skip_before_action :authorized, only: [:create, :login]
 
     def create 
-        user = User.new(username: params[:username], password: params[:password], game_id: params[:game_id], score:0)
+        user = User.new(username: params[:username], password: params[:password], game_id: params[:game_id], funds:1000, score:0)
         if user.save
             token = encode_token(user_id: user.id)
             render json: { user: user, jwt: token }, status: :created
@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     def show
         user=User.find(params[:id])
         render json: {cards:user.cards, player: user}
+    end 
+
+    def update 
+        puts "MADE IT"
+        puts (params[:funds])
+        user=User.find(params[:id])
+        user.update(funds: params[:funds])
     end 
 
     
