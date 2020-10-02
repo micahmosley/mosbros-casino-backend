@@ -31,8 +31,6 @@ class UsersController < ApplicationController
     end 
 
     def update 
-        puts "MADE IT"
-        puts (params[:funds])
         user=User.find(params[:id])
         user.update(funds: params[:funds])
     end 
